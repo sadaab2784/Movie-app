@@ -1,4 +1,4 @@
-export default function movies (state = "some string", action) {
+export default function movies (state = [], action) {
     if(action.type === 'ADD_MOVIES'){
         return action.movies;
     }
