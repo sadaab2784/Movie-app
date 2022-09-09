@@ -5,8 +5,9 @@ const initialMoviesState = {
     list: [],
     favourites: [],
     showFavourites: false
-}
-export default function movies (state = initialMoviesState, action) {
+};
+export function movies (state = initialMoviesState, action) {
+    console.log('MOVIES REDUCER');
     // if(action.type === ADD_MOVIES){
     //     return {
     //         // now i can used the spread operator to change the current state to favourite state
@@ -50,3 +51,23 @@ export default function movies (state = initialMoviesState, action) {
             return state;
         }
     }
+
+const initialSearchState = { 
+    result: {} 
+};
+export function search (state = initialSearchState, action){
+    console.log('SEARCH REDUCER');
+    return state;
+}
+
+const initialRootState = {
+    movies: initialMoviesState,
+    search: initialSearchState
+};
+
+export default function rootReducer (state= initialRootState, action){
+    return {
+        movies: movies(state.movies, action),
+        search: search(state.search, action)
+    }
+}
